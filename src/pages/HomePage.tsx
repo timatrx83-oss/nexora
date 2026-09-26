@@ -3,6 +3,7 @@ import { Button } from '../components/ui/Button'
 import { Container } from '../components/ui/Container'
 import { CareerDirections } from '../components/home/CareerDirections'
 import { CosmicField } from '../components/home/CosmicField'
+import { FeedbackSection } from '../components/feedback/FeedbackSection'
 import { FinalCta } from '../components/home/FinalCta'
 import { JourneyPreview } from '../components/home/JourneyPreview'
 import { MentorPreview } from '../components/home/MentorPreview'
@@ -48,6 +49,7 @@ export function HomePage() {
       <MentorPreview />
       {SHOW_DEFERRED_HOME_SECTIONS ? <ProjectsPreview /> : null}
       <FinalCta />
+      <FeedbackSection />
     </div>
   )
 }

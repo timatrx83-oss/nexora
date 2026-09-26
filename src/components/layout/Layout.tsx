@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import { FeedbackPrompt } from '../feedback/FeedbackPrompt'
 import { Footer } from './Footer'
 import { Navbar } from './Navbar'
 import { pageKeys } from '../../data/navigation'
@@ -32,6 +33,7 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <FeedbackPrompt />
     </div>
   )
 }
