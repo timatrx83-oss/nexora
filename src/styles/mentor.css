@@ -1,0 +1,503 @@
+@import './atmosphere.css';
+
+.mentor-page {
+  --mentor-glass: rgba(10, 14, 24, 0.62);
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  min-height: 100svh;
+  padding-bottom: var(--space-8);
+}
+
+.mentor-page > :not(.cosmos) {
+  position: relative;
+  z-index: 1;
+}
+
+.mentor-page .mentor-hero h1 {
+  background-image: var(--galactic-hero);
+  background-size: 170% 140%;
+  background-position: 22% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: galactic-drift 34s ease-in-out infinite;
+}
+
+.mentor-hero {
+  padding: calc(var(--nav-height) + 2.4rem) 0 1.8rem;
+}
+
+.mentor-hero__panel {
+  position: relative;
+  isolation: isolate;
+  max-width: 46rem;
+  padding: 2rem 2.1rem 1.85rem;
+  background: var(--mentor-glass);
+  border: 1px solid rgba(170, 200, 255, 0.14);
+  border-radius: 18px;
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 0 0 1px rgba(62, 200, 224, 0.04) inset,
+    0 24px 60px rgba(4, 8, 18, 0.35);
+}
+
+.mentor-hero__panel::before {
+  content: '';
+  position: absolute;
+  inset: -18% -8% auto -12%;
+  height: 72%;
+  background:
+    radial-gradient(ellipse at 18% 40%, rgba(62, 200, 224, 0.2), transparent 62%),
+    radial-gradient(ellipse at 78% 20%, rgba(139, 124, 255, 0.16), transparent 58%);
+  filter: blur(28px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.mentor-hero__panel::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(110, 210, 255, 0.45), transparent);
+  pointer-events: none;
+}
+
+.mentor-hero h1 {
+  position: relative;
+  isolation: isolate;
+  font-size: var(--size-hero);
+  max-width: 14ch;
+  margin: 0.55rem 0 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.mentor-hero h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 18%;
+  top: 18%;
+  height: 64%;
+  background: radial-gradient(ellipse, rgba(62, 200, 224, 0.26), transparent 72%);
+  filter: blur(28px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+:lang(ru) .mentor-hero h1,
+:lang(kk) .mentor-hero h1 {
+  max-width: 100%;
+  font-size: clamp(2.35rem, 6.2vw, 4.4rem);
+}
+
+.mentor-hero .lede {
+  max-width: 36rem;
+  margin: 0;
+}
+
+.mentor-thread-path {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.15rem;
+  pointer-events: none;
+}
+
+.mentor-thread-path span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(62, 200, 224, 0.45);
+  box-shadow: 0 0 10px var(--glow-cyan);
+}
+
+.mentor-thread-path span:nth-child(3) {
+  background: rgba(139, 124, 255, 0.7);
+  box-shadow: 0 0 10px var(--glow-violet);
+}
+
+.mentor-thread-path span:nth-child(5) {
+  background: #4f8cff;
+  box-shadow: 0 0 10px var(--glow-blue);
+}
+
+.mentor-thread-path span:nth-child(7) {
+  background: rgba(159, 248, 255, 0.9);
+  box-shadow: 0 0 12px var(--glow-cyan);
+  transform: scale(1.28);
+}
+
+.mentor-thread-path i {
+  display: block;
+  width: 1.35rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(62, 200, 224, 0.45), rgba(139, 124, 255, 0.35));
+  opacity: 0.7;
+}
+
+.mentor-shell {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.36fr) 1fr;
+  border: 1px solid rgba(170, 200, 255, 0.14);
+  border-radius: 18px;
+  min-height: 32rem;
+  background: var(--mentor-glass);
+  backdrop-filter: blur(18px);
+  overflow: visible;
+}
+
+.mentor-side {
+  padding: 1.5rem 1.35rem 1.7rem;
+  border-right: 1px solid rgba(170, 200, 255, 0.12);
+}
+
+.mentor-hello {
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  margin-bottom: 0.45rem;
+}
+
+.mentor-hello__body {
+  color: var(--text-secondary);
+  margin-bottom: 1.6rem;
+}
+
+.mentor-context {
+  padding: 1rem 1.05rem 1.05rem;
+  border: 1px solid rgba(170, 200, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(8, 12, 22, 0.4);
+}
+
+.mentor-context h2 {
+  font-size: 0.82rem;
+  letter-spacing: var(--tracking-label);
+  color: rgba(158, 232, 255, 0.82);
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  animation: none;
+}
+
+.mentor-context dl {
+  margin: 0;
+}
+
+.mentor-context div {
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(170, 200, 255, 0.1);
+}
+
+.mentor-context dt {
+  font-size: 0.78rem;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.mentor-context dd {
+  margin: 0;
+  font-family: var(--font-display);
+}
+
+.mentor-context__empty p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.mentor-main {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  min-height: 32rem;
+  background: linear-gradient(180deg, rgba(62, 200, 224, 0.04), transparent 18%);
+}
+
+.mentor-starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 1.1rem 1.2rem 0;
+}
+
+.mentor-starter {
+  background: var(--mentor-glass);
+  border: 1px solid rgba(170, 200, 255, 0.16);
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  min-height: 2.6rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-align: left;
+  backdrop-filter: blur(12px);
+  transition:
+    border-color 360ms var(--ease),
+    color 360ms var(--ease),
+    transform 360ms var(--ease),
+    box-shadow 360ms var(--ease);
+}
+
+.mentor-starter:hover {
+  border-color: rgba(62, 200, 224, 0.42);
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(62, 200, 224, 0.12);
+}
+
+.mentor-starter:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.mentor-thread {
+  padding: 1.2rem 1.3rem 0.6rem;
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  min-height: 12rem;
+  overflow: visible;
+}
+
+.mentor-thread__empty {
+  color: var(--text-muted);
+}
+
+.mentor-bubble {
+  margin: 0;
+  max-width: 38rem;
+  padding: 0.95rem 1.05rem;
+  border: 1px solid rgba(170, 200, 255, 0.12);
+  border-radius: 16px;
+  background: rgba(12, 16, 28, 0.45);
+  animation: mentor-in 420ms var(--ease);
+}
+
+.mentor-bubble figcaption {
+  font-size: 0.78rem;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.mentor-bubble p {
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+}
+
+.mentor-bubble--user {
+  justify-self: end;
+  background: rgba(79, 140, 255, 0.1);
+  border-color: rgba(79, 140, 255, 0.22);
+}
+
+.mentor-bubble--user figcaption {
+  color: rgba(196, 214, 255, 0.8);
+}
+
+.mentor-bubble--mentor {
+  border-color: rgba(62, 200, 224, 0.22);
+  box-shadow: 0 0 18px rgba(62, 200, 224, 0.06);
+}
+
+.mentor-bubble--mentor figcaption {
+  color: rgba(158, 232, 255, 0.78);
+}
+
+.mentor-bubble.is-loading p {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.mentor-bubble.is-loading p::after {
+  content: '';
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow:
+    0.7rem 0 0 0 var(--accent),
+    1.4rem 0 0 0 var(--accent);
+  animation: mentor-dots 1.2s var(--ease) infinite;
+}
+
+@keyframes mentor-dots {
+  0%,
+  100% {
+    opacity: 0.35;
+    box-shadow:
+      0.7rem 0 0 0 rgba(62, 200, 224, 0.35),
+      1.4rem 0 0 0 rgba(62, 200, 224, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0.7rem 0 8px 0 rgba(62, 200, 224, 0.55),
+      1.4rem 0 8px 0 rgba(62, 200, 224, 0.4);
+  }
+}
+
+.mentor-markdown {
+  color: var(--text-secondary);
+}
+
+.mentor-markdown p,
+.mentor-markdown li {
+  color: var(--text-secondary);
+}
+
+.mentor-markdown p + p,
+.mentor-markdown ul {
+  margin-top: 0.65rem;
+}
+
+.mentor-markdown ul {
+  padding-left: 1.1rem;
+}
+
+.mentor-markdown h3,
+.mentor-markdown h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.mentor-markdown strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.mentor-error {
+  display: grid;
+  gap: 0.7rem;
+  justify-items: start;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(170, 200, 255, 0.14);
+  border-radius: 14px;
+  color: var(--text-secondary);
+  background: rgba(12, 16, 28, 0.4);
+}
+
+.mentor-starter:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+@keyframes mentor-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mentor-composer {
+  padding: 0.95rem 1.2rem 0.45rem;
+  border-top: 1px solid rgba(170, 200, 255, 0.12);
+}
+
+.mentor-composer textarea {
+  width: 100%;
+  resize: none;
+  background: rgba(8, 12, 22, 0.55);
+  border: 1px solid rgba(170, 200, 255, 0.16);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  min-height: 4.4rem;
+  transition:
+    border-color 360ms var(--ease),
+    box-shadow 360ms var(--ease);
+}
+
+.mentor-composer textarea:focus-visible {
+  outline: none;
+  border-color: rgba(62, 200, 224, 0.5);
+  box-shadow: 0 0 0 3px rgba(62, 200, 224, 0.12), 0 0 20px rgba(62, 200, 224, 0.12);
+}
+
+.mentor-composer__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.mentor-composer__row .btn--ghost {
+  color: var(--text-muted);
+}
+
+.mentor-composer__row .btn:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.mentor-disclaimer {
+  padding: 0 1.2rem 1.1rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 860px) {
+  .mentor-hero h1 {
+    font-size: var(--size-page);
+    max-width: none;
+  }
+
+  .mentor-hero__panel {
+    padding: 1.45rem 1.2rem 1.35rem;
+  }
+
+  .mentor-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .mentor-side {
+    border-right: 0;
+    border-bottom: 1px solid rgba(170, 200, 255, 0.12);
+  }
+
+  .mentor-main {
+    min-height: 0;
+  }
+
+  .mentor-thread {
+    min-height: 10rem;
+  }
+
+  .mentor-starter {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mentor-page .mentor-hero h1 {
+    animation: none;
+  }
+
+  .mentor-bubble,
+  .mentor-starter,
+  .mentor-composer textarea {
+    animation: none;
+    transition: none;
+  }
+
+  .mentor-starter:hover {
+    transform: none;
+  }
+
+  .mentor-bubble.is-loading p::after {
+    animation: none;
+  }
+}
